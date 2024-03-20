@@ -52,7 +52,7 @@ namespace FunctionChallenges
                 switch (item)
                 {
                     case int:
-                        total = total + item;
+                        total += item;
                         break;
                     case string:
                         concatenateText = concatenateText + " " + item;
