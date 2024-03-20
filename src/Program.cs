@@ -47,7 +47,7 @@ namespace FunctionChallenges
             int randomNumber = random.Next(1, 10);
             try
             {
-                            while (true)
+            while (true)
             {
                 string input = Console.ReadLine() ?? "";
                 string[] parts = input.Split(" ");
