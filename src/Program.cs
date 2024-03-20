@@ -1,4 +1,5 @@
 using System;
+using Microsoft.VisualBasic;
 
 namespace FunctionChallenges
 {
@@ -8,7 +9,7 @@ namespace FunctionChallenges
         {
             // Challenge 1: String and Number Processor
             // Console.WriteLine("Challenge 1: String and Number Processor");
-            // StringNumberProcessor("Hello", 100, 200, "World"); // Expected outcome: "Hello World; 300"
+            StringNumberProcessor("Hello", 100, 200, "World"); // Expected outcome: "Hello World; 300"
 
             // Challenge 2: Object Swapper
             // Console.WriteLine("\nChallenge 2: Object Swapper");
@@ -39,6 +40,35 @@ namespace FunctionChallenges
             // string sentence = "This is the original sentence!";
             // string reversed = ReverseWords(sentence);
             // Console.WriteLine(reversed); // Expected outcome: "sihT si eht lanigiro !ecnetnes"
+        }
+
+        public static void StringNumberProcessor(params dynamic[] listItems) {
+            try
+            {
+            int total = 0;
+            string concatenateText = " ";
+            foreach (var item in listItems)
+            {
+                switch (item)
+                {
+                    case int:
+                        total = total + item;
+                        break;
+                    case string:
+                        concatenateText = concatenateText + " " + item;
+                        break;
+                    default:
+                        Console.WriteLine($"Unknown Data Type");
+                        break;
+                }
+            }
+            Console.WriteLine($"{concatenateText}; {total}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"{e}");
+                
+            }
         }
 
         public static void GuessingGame() {
