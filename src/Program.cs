@@ -9,7 +9,7 @@ namespace FunctionChallenges
         {
             // Challenge 1: String and Number Processor
             // Console.WriteLine("Challenge 1: String and Number Processor");
-            StringNumberProcessor("Hello", 100, 200, "World"); // Expected outcome: "Hello World; 300"
+            // StringNumberProcessor("Hello", 100, 200, "World"); // Expected outcome: "Hello World; 300"
 
             // Challenge 2: Object Swapper
             // Console.WriteLine("\nChallenge 2: Object Swapper");
@@ -31,15 +31,17 @@ namespace FunctionChallenges
             // Console.WriteLine($"Strings: {str1}, {str2}");
 
             // Challenge 3: Guessing Game
-            Console.WriteLine("\nChallenge 3: Guessing Game");
-            // Uncomment to test the GuessingGame method
-            GuessingGame(); // Expected outcome: User input until the correct number is guessed or user inputs `Quit`
+            // Console.WriteLine("\nChallenge 3: Guessing Game");
+            // // Uncomment to test the GuessingGame method
+            // GuessingGame(); // Expected outcome: User input until the correct number is guessed or user inputs `Quit`
 
             // Challenge 4: Simple Word Reversal
-            // Console.WriteLine("\nChallenge 4: Simple Word Reversal");
-            // string sentence = "This is the original sentence!";
-            // string reversed = ReverseWords(sentence);
-            // Console.WriteLine(reversed); // Expected outcome: "sihT si eht lanigiro !ecnetnes"
+            Console.WriteLine("\nChallenge 4: Simple Word Reversal");
+            string sentence = "This is the original sentence!";
+            string reversed = ReverseWords(sentence);
+            Console.WriteLine(reversed); // Expected outcome: "sihT si eht lanigiro !ecnetnes"
+
+            Console.ReadKey();
         }
 
         public static void StringNumberProcessor(params dynamic[] listItems) {
@@ -67,7 +69,6 @@ namespace FunctionChallenges
             catch (Exception e)
             {
                 Console.WriteLine($"{e}");
-                
             }
         }
 
@@ -115,6 +116,28 @@ namespace FunctionChallenges
             {
                 Console.WriteLine($"{e}");
             }
+        }
+
+        public static string ReverseWords(string sentence) {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(sentence) || sentence.Length == 1)
+                {
+                    throw new ArgumentNullException();
+                }
+                else
+                {
+                    string[] parts = sentence.Split(" ");
+                    string reversedStr = string.Join(" ", parts
+                    .Select(word => new string(word.Reverse().ToArray())));
+
+                    return reversedStr;   
+                }
+            }
+            catch (ArgumentNullException)
+            {
+                return $"Argument is null or empty or it have 1 character";
+            } 
         }
     }
 }
